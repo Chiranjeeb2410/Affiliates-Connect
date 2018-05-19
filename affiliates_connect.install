@@ -1,0 +1,25 @@
+
+<?php
+
+/**
+ * @file
+ * Affiliates_connect installation routine.
+ *
+ * Creates required affiliates_connect tables for storing
+ * product data.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function affiliates_connect_schema()
+{
+    $schema = [];
+
+    $schema['affiliates_connect'] = [
+        // schema base fields
+    ];
+
+    return $schema;
+}
+
