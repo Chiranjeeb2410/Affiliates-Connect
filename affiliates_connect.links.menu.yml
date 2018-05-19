@@ -1,0 +1,7 @@
+affiliates_connect.settings:
+  title: 'API config settings'
+  route_name: affiliates_connect.settings
+  description: 'Configure affiliate API admin settings.'
+  parent: system.admin_config_development
+
+A

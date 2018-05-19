@@ -1,5 +1,5 @@
-affiliates_connect.settings_form:
-  path: 'admin/config/services/affiliatesconnect'
+affiliates_connect.settings:
+  path: 'admin/config/development/affiliatesconnect'
   defaults:
     _title: 'Affiliates Connect config settings'
     _form: '\Drupal\affiliates_connect\Form\AffiliatesConnectSettingsForm'
