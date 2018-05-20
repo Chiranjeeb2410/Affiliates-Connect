@@ -5,8 +5,8 @@
 
 ## Google Summer of Code 2018 | Drupal
  
-#### Student: [Chiranjeeb Mahanta (chiranjeeb2410)](https://www.drupal.org/u/chiranjeeb2410)
-#### Mentors: - [Dibyajyoti Panda](https://www.drupal.org/u/dbjpanda) | [gvso](https://www.drupal.org/u/gvso) | [Matthew Lechleider (Slurpee)](https://www.drupal.org/u/slurpee)
+#### Student: [Chiranjeeb Mahanta (chiranjeeb2410)](https://www.drupal.org/u/chiranjeeb2410) | [Ankit Jain (ankitjain28may)](https://www.drupal.org/u/ankitjain28may)
+#### Mentors: - [Dibyajyoti Panda](https://www.drupal.org/u/dbjpanda) | [gvso](https://www.drupal.org/u/gvso) | [Matthew Lechleider (Slurpee)](https://www.drupal.org/u/slurpee) | [Shibasis Patel (shibasisp)](https://www.drupal.org/u/shibasisp) 
 
 ## Description:
 
