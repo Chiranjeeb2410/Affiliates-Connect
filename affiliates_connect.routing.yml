@@ -1,11 +1,37 @@
-affiliates_connect.settings:
-  path: 'admin/config/development/affiliatesconnect'
+affiliates_connect.admin_config:
+  path: '/admin/config/affiliates-connect'
   defaults:
-    _title: 'Affiliates Connect config settings'
-    _form: '\Drupal\affiliates_connect\Form\AffiliatesConnectSettingsForm'
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: 'Affiliates Connect Settings'
   requirements:
-    _permission: 'administer affiliate APIs'
+    _permission: 'access administration pages'
+
+affiliates_connect.overview:
+  path: 'admin/config/affiliates-connect/overview'
+  defaults:
+    _title: 'Affiliates Connect'
+    _controller: ''
+  requirements:
+    _permission: 'access administration pages'
   options:
     _admin_route: TRUE
 
+# affiliates_connect.native_api:
+#   path: 'admin/config/affiliates-connect/native-api'
+#   defaults:
+#     _title: 'Affiliates Native API settings'
+#     _form: ''
+#   requirements:
+#     _permission: 'access administration pages'
+#   options:
+#     _admin_route: TRUE
 
+# affiliates_connect.scraper_api:
+#   path: 'admin/config/affiliates-connect/scraper-api'
+#   defaults:
+#     _title: 'Affiliates Scraper API settings'
+#     _form: ''
+#   requirements:
+#     _permission: 'access administration pages'
+#   options:
+#     _admin_route: TRUE
