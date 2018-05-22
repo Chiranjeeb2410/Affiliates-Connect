@@ -22,8 +22,8 @@ use Drupal\Core\Entity\ContentEntityInterface;
  *   }
  * )
  */
-class AffiliatesProduct extends ContentEntityBase implements ContentEntityInterface {
 
+class AffiliatesProduct extends ContentEntityBase implements ContentEntityInterface {
 
   /**
    * Returns the Product Name.
@@ -66,7 +66,12 @@ class AffiliatesProduct extends ContentEntityBase implements ContentEntityInterf
       ->setLabel(t('Product Description'))
       ->setDescription(t('The description of the product.'));
 
-    // Description of the product.
+    // Warranty details of the product.
+    $fields['productWarranty'] = BaseFieldDefinition::create('string')
+      ->setLabel(t('Product Warranty'))
+      ->setDescription(t('The warranty details of the product.'));
+
+    // Image urls of the product.
     $fields['imageUrls'] = BaseFieldDefinition::create('string_long')
       ->setLabel(t('Product Image URLs'))
       ->setDescription(t('The image urls of the product.'));
@@ -89,12 +94,12 @@ class AffiliatesProduct extends ContentEntityBase implements ContentEntityInterf
     // Vendor Selling Price of the product.
     $fields['vendorSellingPrice'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Price'))
-      ->setDescription(t('The vendor selling price of the product.'));
+      ->setDescription(t('The Vendor Selling Price of the product.'));
 
     // Vendor Special Price of the product.
     $fields['vendorSpecialPrice'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Deal Price'))
-      ->setDescription(t('The vendor deal price of the product.'));
+      ->setDescription(t('The Vendor Deal Price of the product.'));
 
     // URL of the product.
     $fields['productUrl'] = BaseFieldDefinition::create('string_long')
@@ -106,20 +111,20 @@ class AffiliatesProduct extends ContentEntityBase implements ContentEntityInterf
       ->setLabel(t('Product Brand'))
       ->setDescription(t('The brand of the product.'));
 
-    // Avalability of the product.
+    // Availability of the product.
     $fields['inStock'] = BaseFieldDefinition::create('string')
-      ->setLabel(t('Product Avalability'))
-      ->setDescription(t('The avalability of the product.'));
+      ->setLabel(t('Product Availability'))
+      ->setDescription(t('The availability of the product.'));
 
-    // Cash on devilery of the product.
+    // Cash on Delivery of the product.
     $fields['codAvailable'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Cash on Delivery'))
-      ->setDescription(t('The avalability of the product COD.'));
+      ->setDescription(t('The availability of the product for COD.'));
 
     // Discount percentage on the product price.
     $fields['discountPercentage'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Discount (%)'))
-      ->setDescription(t('The discount of the product in %.'));
+      ->setDescription(t('The discount on the product in %.'));
 
     // Offers on the product.
     $fields['offers'] = BaseFieldDefinition::create('string_long')
@@ -139,12 +144,12 @@ class AffiliatesProduct extends ContentEntityBase implements ContentEntityInterf
     // Seller Name of the product.
     $fields['sellerName'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Seller Name'))
-      ->setDescription(t('The seller name of the product'));
+      ->setDescription(t('The Seller Name of the product'));
 
     // Seller Name of the product.
     $fields['sellerAverageRating'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Seller Name'))
-      ->setDescription(t('The seller name of the product'));
+      ->setDescription(t('The Seller Name of the product'));
 
     // Additional Data collected from affiliare APIs or scraper.
     $fields['additional_data'] = BaseFieldDefinition::create('string_long')
@@ -154,14 +159,15 @@ class AffiliatesProduct extends ContentEntityBase implements ContentEntityInterf
     // User creation time.
     $fields['created'] = BaseFieldDefinition::create('created')
       ->setLabel(t('Created'))
-      ->setDescription(t('The time that the entity was created.'));
+      ->setDescription(t('Time of creating the entity.'));
 
     // User modified time.
     $fields['changed'] = BaseFieldDefinition::create('changed')
       ->setLabel(t('Changed'))
-      ->setDescription(t('The time that the entity was last edited.'));
+      ->setDescription(t('Time of last editing the entity.'));
 
     return $fields;
   }
 
 }
+
