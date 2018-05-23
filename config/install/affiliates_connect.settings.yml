@@ -1,5 +1,5 @@
-use_fallback_scraper: True
+fallback_scraper: True
 save_searched_products: False
 cloaking: True
 enable_hits_analysis: True
-append_affiliateid_scraped_products_url: True
+append_affiliate_id: True
