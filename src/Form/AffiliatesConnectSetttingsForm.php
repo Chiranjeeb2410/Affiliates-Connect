@@ -69,9 +69,11 @@ class AffiliatesConnectSettingsForm extends ConfigFormBase
   public function buildForm(array $form, FormStateInterface $form_state)
   {
     $config = $this->config('affiliates_connect.settings');
-  //$form[] = [
-  //  fields to be defined
-  //];
+
+    // $form[] = [
+    //  fields to be defined
+    // ];
+
     return parent::buildForm($form, $form_state);
   }
 

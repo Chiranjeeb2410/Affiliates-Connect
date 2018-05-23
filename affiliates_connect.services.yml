@@ -1,5 +1,5 @@
 services:
-  plugin.manager.affiliate_network:
-    class: Drupal\affiliates_connect\Plugin\AffiliateNetworkManager
+  plugin.manager.affiliates_network:
+    class: Drupal\affiliates_connect\Plugin\AffiliatesNetworkManager
     parent: default_plugin_manager
     arguments: ['@container.namespaces', '@cache.default', '@language_manager', '@module_handler']

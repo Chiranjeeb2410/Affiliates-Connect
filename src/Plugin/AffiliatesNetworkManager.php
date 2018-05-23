@@ -7,13 +7,13 @@ use Drupal\Core\Cache\CacheBackendInterface;
 use Drupal\Core\Extension\ModuleHandlerInterface;
 
 /**
- * Provides the Affiliate network plugin manager.
+ * Provides the Affiliates network plugin manager.
  */
-class AffiliateNetworkManager extends DefaultPluginManager {
+class AffiliatesNetworkManager extends DefaultPluginManager {
 
 
   /**
-   * Constructs a new AffiliateNetworkManager object.
+   * Constructs a new AffiliatesNetworkManager object.
    *
    * @param \Traversable $namespaces
    *   An object that implements \Traversable which contains the root paths
@@ -24,10 +24,10 @@ class AffiliateNetworkManager extends DefaultPluginManager {
    *   The module handler to invoke the alter hook with.
    */
   public function __construct(\Traversable $namespaces, CacheBackendInterface $cache_backend, ModuleHandlerInterface $module_handler) {
-    parent::__construct('Plugin/AffiliateNetwork', $namespaces, $module_handler, 'Drupal\affiliates_connect\Plugin\AffiliateNetworkInterface', 'Drupal\affiliates_connect\Annotation\AffiliateNetwork');
+    parent::__construct('Plugin/AffiliatesNetwork', $namespaces, $module_handler, 'Drupal\affiliates_connect\Plugin\AffiliatesNetworkInterface', 'Drupal\affiliates_connect\Annotation\AffiliatesNetwork');
 
-    $this->alterInfo('affiliates_connect_affiliate_network_info');
-    $this->setCacheBackend($cache_backend, 'affiliates_connect_affiliate_network_plugins');
+    $this->alterInfo('affiliates_connect_affiliates_network_info');
+    $this->setCacheBackend($cache_backend, 'affiliates_connect_affiliates_network_plugins');
   }
 
 }

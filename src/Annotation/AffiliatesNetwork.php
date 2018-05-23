@@ -5,14 +5,14 @@ namespace Drupal\affiliates_connect\Annotation;
 use Drupal\Component\Annotation\Plugin;
 
 /**
- * Defines a Affiliate network item annotation object.
+ * Defines a Affiliates network item annotation object.
  *
- * @see \Drupal\affiliates_connect\Plugin\AffiliateNetworkManager
+ * @see \Drupal\affiliates_connect\Plugin\AffiliatesNetworkManager
  * @see plugin_api
  *
  * @Annotation
  */
-class AffiliateNetwork extends Plugin {
+class AffiliatesNetwork extends Plugin {
 
 
   /**
