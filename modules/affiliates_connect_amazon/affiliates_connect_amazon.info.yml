@@ -1,0 +1,5 @@
+name: 'Affiliates Connect Amazon'
+type: module
+description: 'Amazon Plugin'
+core: 8.x
+package: 'Third-party Integration'

@@ -16,19 +16,28 @@ class AffiliatesNetwork extends Plugin {
 
 
   /**
-   * The plugin ID.
+   * The module machine name.
    *
    * @var string
    */
   public $id;
 
   /**
-   * The label of the plugin.
+   * The label of the module.
    *
    * @var \Drupal\Core\Annotation\Translation
    *
    * @ingroup plugin_translatable
    */
   public $label;
+
+  /**
+   * The description of the module.
+   *
+   * @var \Drupal\Core\Annotation\Translation
+   *
+   * @ingroup plugin_translatable
+   */
+  public $description;
 
 }
