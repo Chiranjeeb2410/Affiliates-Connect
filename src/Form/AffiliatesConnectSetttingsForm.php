@@ -2,34 +2,29 @@
 
 /**
  * @file
- * Contains Drupal\affiliates_connect\Form\AffiliatesConnectSetttingsForm.
+ * Contains \Drupal\affiliates_connect\Form\AffiliatesConnectSetttingsForm.
  */
 
 namespace Drupal\affiliates_connect\Form;
 
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\Path\PathValidatorInterface;
-use Drupal\Core\Routing\RouteProviderInterface;
-
+use Drupal\Core\Config\ConfigFactoryInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 /**
  * Settings form for Affiliates Connect.
  */
-class AffiliatesConnectSettingsForm extends ConfigFormBase
+class AffiliatesConnectSetttingsForm extends ConfigFormBase
 {
+
   /**
    * Constructor.
    *
    * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
    *   The configuration factory.
-   * @param \Drupal\Core\Routing\RouteProviderInterface $route_provider
-   *   Used to check if route exists.
-   * @param \Drupal\Core\Path\PathValidatorInterface $path_validator
-   *   Used to check if path is valid and exists.
    */
-  public function __construct(ConfigFactoryInterface $config_factory, RouteProviderInterface $route_provider, PathValidatorInterface $path_validator, RequestContext $request_context)
-  {
-    parent::__construct($config_factory, $route_provider, $path_validator);
+  public function __construct(ConfigFactoryInterface $config_factory) {
+    parent::__construct($config_factory);
   }
 
   /**
@@ -38,9 +33,7 @@ class AffiliatesConnectSettingsForm extends ConfigFormBase
   public static function create(ContainerInterface $container)
   {
     return new static(
-      $container->get('config.factory'),
-      $container->get('router.route_provider'),
-      $container->get('path.validator'),
+      $container->get('config.factory')
     );
   }
 
@@ -49,10 +42,9 @@ class AffiliatesConnectSettingsForm extends ConfigFormBase
    */
   protected function getEditableConfigNames()
   {
-    return array_merge(
-      parent::getEditableConfigNames(),
-        ['affiliates_connect.settings']
-    );
+    return [
+      'affiliates_connect.settings'
+    ];
   }
 
   /**
@@ -72,22 +64,8 @@ class AffiliatesConnectSettingsForm extends ConfigFormBase
 
     $form['affiliates_connect'] = [
       '#type' => 'details',
-      '#title' => $this->t('Source'),
+      '#title' => $this->t('Affiliates Connect Settings'),
       '#open' => TRUE,
-    ];
-
-    $form['affiliates_connect']['native_api'] = [
-      '#type' => 'checkbox',
-      '#title' => $this->t('Native API'),
-      '#description' => $this->t('Enable to use Affiliate Marketing using tracking ID'),
-      '#default_value' => $config->get('native_api'),
-    ];
-
-    $form['affiliates_connect']['scraper_api'] = [
-      '#type' => 'checkbox',
-      '#title' => $this->t('Scraper API'),
-      '#description' => $this->t('Enable to use Scraper API to overcome limitation of Affiliate API'),
-      '#default_value' => $config->get('scraper_api'),
     ];
 
     $form['affiliates_connect']['data_storage'] = [
@@ -128,7 +106,7 @@ class AffiliatesConnectSettingsForm extends ConfigFormBase
     $form['affiliates_connect']['append_affiliate_id'] = [
       '#type' => 'checkbox',
       '#title' => $this->t('Append Affiliate tracking ID to scraped product\'s URL'),
-      '#description' => $this->t('Enable to automatically append affiliate tracking id to products url 
+      '#description' => $this->t('Enable to automatically append affiliate tracking id to products url
       during scraping.'),
       '#default_value' => $config->get('append_affiliate_id'),
     ];
@@ -140,10 +118,10 @@ class AffiliatesConnectSettingsForm extends ConfigFormBase
   /**
    * {@inheritdoc}
    */
-  public function validateForm(array $form, FormStateInterface $form_state)
-  {
-    parent::validateForm($form, $form_state);
-  }
+  // public function validateForm(array $form, FormStateInterface $form_state)
+  // {
+  //   parent::validateForm($form, $form_state);
+  // }
 
   /**
    * {@inheritdoc}

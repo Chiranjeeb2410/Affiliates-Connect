@@ -5,12 +5,12 @@ affiliates_connect.admin_config:
   description: 'Configure affiliate API settings.'
   weight: 10
 
-# affiliates_connect.native_api:
-#   title: Affiliates Native API settings
-#   description: Configure native affiliate api settings
-#   route_name: affiliates_connect.native_api
-#   parent: affiliates_connect.admin_config
-#   weight: 0
+affiliates_connect.native_api:
+  title: Affiliates Native API settings
+  description: Configure native affiliate api settings
+  route_name: affiliates_connect.native_api
+  parent: affiliates_connect.admin_config
+  weight: 0
 
 # affiliates_connect.scraper_api:
 #   title: Affiliates Scraper API settings

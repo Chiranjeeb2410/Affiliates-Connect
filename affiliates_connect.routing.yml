@@ -10,22 +10,21 @@ affiliates_connect.overview:
   path: 'admin/config/affiliates-connect/overview'
   defaults:
     _title: 'Affiliates Connect'
-    _form: '\Drupal\affiliates_connect\Form\AffiliatesConnectSettingsForm'
     _controller: 'Drupal\affiliates_connect\Controller\AffiliatesConnectController::plugins'
   requirements:
     _permission: 'access administration pages'
   options:
     _admin_route: TRUE
 
-# affiliates_connect.native_api:
-#   path: 'admin/config/affiliates-connect/native-api'
-#   defaults:
-#     _title: 'Affiliates Native API settings'
-#     _form: ''
-#   requirements:
-#     _permission: 'access administration pages'
-#   options:
-#     _admin_route: TRUE
+affiliates_connect.native_api:
+  path: 'admin/config/affiliates-connect/native-api'
+  defaults:
+    _title: 'Affiliates Native API settings'
+    _form: '\Drupal\affiliates_connect\Form\AffiliatesConnectSetttingsForm'
+  requirements:
+    _permission: 'access administration pages'
+  options:
+    _admin_route: TRUE
 
 # affiliates_connect.scraper_api:
 #   path: 'admin/config/affiliates-connect/scraper-api'

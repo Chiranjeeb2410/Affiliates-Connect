@@ -1,0 +1,6 @@
+affiliates_connect_amazon.settings:
+  title: 'Affiliates Connect Amazon Settings'
+  route_name: affiliates_connect_amazon.settings
+  description: 'A description for the menu entry'
+
+
