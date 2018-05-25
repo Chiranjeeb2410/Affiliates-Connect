@@ -51,7 +51,10 @@ class AffiliatesConnectController extends ControllerBase {
     foreach ($networks as $network) {
       $data[] = [
         $network['label'],
-        // $network[]
+        [
+          '#type' => 'markup',
+          '#markup' => $this->t('Cron run complete'),
+        ],
       ];
     }
     return [

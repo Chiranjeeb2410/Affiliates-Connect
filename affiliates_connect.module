@@ -1,0 +1,27 @@
+<?php
+
+/**
+ * @file
+ * Contains affiliates_connect.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function affiliates_connect_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the affiliates_connect module.
+    case 'affiliates_connect.overview':
+        return '<p>' . t('This module provides an interface to easily integrate with various affiliate APIs or product advertising APIs provided by different ecommerce platforms like Flipkart, Amazon, Ebay etc to fetch data easily from their stores and display those to monetize your website by advertising their products.') . '</p>';
+
+    case 'help.page.affiliates_connect_amazon':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Amazon Plugin') . '</p>';
+      return $output;
+
+    default:
+  }
+}

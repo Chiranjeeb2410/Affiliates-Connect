@@ -130,8 +130,6 @@ class AffiliatesConnectSetttingsForm extends ConfigFormBase
   {
     $values = $form_state->getValues();
     $this->config('affiliates_connect.settings')
-      ->set('native_api', $values['native_api'])
-      ->set('scraper_api', $values['scraper_api'])
       ->set('data_storage', $values['data_storage'])
       ->set('fallback_scraper', $values['fallback_scraper'])
       ->set('save_searched_products', $values['save_searched_products'])

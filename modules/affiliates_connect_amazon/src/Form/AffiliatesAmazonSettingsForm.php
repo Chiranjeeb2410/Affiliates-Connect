@@ -140,11 +140,15 @@ class AffiliatesAmazonSettingsForm extends AffiliatesConnectSetttingsForm {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    parent::submitForm($form, $form_state);
+    $values = $form_state->getValues();
 
-    $this->config('affiliates_connect_amazon.affiliatesamazonsettings')
-      ->set('affiliate_api', $form_state->getValue('affiliate_api'))
+    $this->config('affiliates_connect_amazon.settings')
+      ->set('native_api', $values['native_api'])
+      ->set('native_affiliate_id', $values['native_affiliate_id'])
+      ->set('native_affiliate_token', $values['native_affiliate_token'])
+      ->set('scraper_api', $values['scraper_api'])
       ->save();
+    parent::submitForm($form, $form_state);
   }
 
 }
