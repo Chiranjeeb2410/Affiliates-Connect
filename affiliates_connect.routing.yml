@@ -1,8 +1,8 @@
 affiliates_connect.admin_config:
   path: '/admin/config/affiliates-connect'
   defaults:
-    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
     _title: 'Affiliates Connect Settings'
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
   requirements:
     _permission: 'access administration pages'
 
@@ -20,7 +20,7 @@ affiliates_connect.native_api:
   path: 'admin/config/affiliates-connect/native-api'
   defaults:
     _title: 'Affiliates Native API settings'
-    _form: '\Drupal\affiliates_connect\Form\AffiliatesConnectSetttingsForm'
+    _form: '\Drupal\affiliates_connect\Form\AffiliatesConnectSettingsForm'
   requirements:
     _permission: 'access administration pages'
   options:

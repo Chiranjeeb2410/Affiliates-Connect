@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains \Drupal\affiliates_connect\Form\AffiliatesConnectSetttingsForm.
+ * Contains \Drupal\affiliates_connect\Form\AffiliatesConnectSettingsForm.
  */
 
 namespace Drupal\affiliates_connect\Form;
@@ -14,7 +14,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 /**
  * Settings form for Affiliates Connect.
  */
-class AffiliatesConnectSetttingsForm extends ConfigFormBase
+class AffiliatesConnectSettingsForm extends ConfigFormBase
 {
 
   /**

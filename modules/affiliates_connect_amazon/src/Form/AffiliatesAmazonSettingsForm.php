@@ -1,16 +1,21 @@
 <?php
 
+/**
+ * @file
+ * Contains \Drupal\affiliates_connect\Form\AffiliatesAmazonSettingsForm.
+ */
+
 namespace Drupal\affiliates_connect_amazon\Form;
 
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Drupal\affiliates_connect\Form\AffiliatesConnectSetttingsForm;
+use Drupal\affiliates_connect\Form\AffiliatesConnectSettingsForm;
 
 /**
  * Class AffiliatesAmazonSettingsForm.
  */
-class AffiliatesAmazonSettingsForm extends AffiliatesConnectSetttingsForm {
+class AffiliatesAmazonSettingsForm extends AffiliatesConnectSettingsForm {
 
 
   /**
@@ -27,9 +32,7 @@ class AffiliatesAmazonSettingsForm extends AffiliatesConnectSetttingsForm {
    * {@inheritdoc}
    */
   public static function create(ContainerInterface $container) {
-    // Instantiates this class.
     return new static(
-    // Load the services required to construct this class.
       $container->get('config.factory')
     );
   }
@@ -62,7 +65,8 @@ class AffiliatesAmazonSettingsForm extends AffiliatesConnectSetttingsForm {
       '#type' => 'details',
       '#title' => $this->t('Affiliates Connect Amazon Settings'),
       '#open' => TRUE,
-      '#description' => $this->t('You need to first create Amazon Associates at <a href="@amazon-affiliate-marketing">@amazon-affiliate-marketing</a>', ['@amazon-affiliate-marketing' => 'https://affiliate-program.amazon.in/']),
+      '#description' => $this->t('You need to first create Amazon Associates at <a href="@amazon-affiliate-marketing">@amazon-affiliate-marketing</a>',
+          ['@amazon-affiliate-marketing' => 'https://affiliate-program.amazon.in/']),
     ];
 
     $form['amazon_settings']['native_api'] = [
