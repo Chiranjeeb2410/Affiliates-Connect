@@ -1,1 +1,5 @@
-affiliates_connect_amazon:
+native_api: True
+native_affiliate_id:
+native_affiliate_token:
+scraper_api: True
+
