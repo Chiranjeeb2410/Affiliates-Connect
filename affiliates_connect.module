@@ -11,19 +11,28 @@ use Drupal\Core\Routing\RouteMatchInterface;
  * Implements hook_help().
  */
 function affiliates_connect_help($route_name, RouteMatchInterface $route_match) {
-  switch ($route_name) {
-    // Main module help for the affiliates_connect module.
-    case 'affiliates_connect.overview':
-        return '<p>' . t('This module provides an interface to easily integrate with various affiliate APIs or 
-        product advertising APIs provided by different ecommerce platforms like Flipkart, Amazon, Ebay etc to 
-        fetch data easily from their stores and display those to monetize your website by advertising their products.') . '</p>';
+    switch ($route_name) {
+        // Main module help for the affiliates_connect module.
+        case 'affiliates_connect.overview':
+            $output = '';
+            $output .= '<h3>' . t('About Affiliates Connect') . '</h3>';
+            $output .= '<p>' . t('This module provides an interface to ') . '</p>';
+            $output .= '<p>' . t('easily integrate with various affiliate ') . '</p>';
+            $output .= '<p>' . t('APIs or product advertising APIs provided') . '</p>';
+            $output .= '<p>' . t(' by different ecommerce platforms like ') . '</p>';
+            $output .= '<p>' . t('Flipkart, Amazon, Ebay etc to fetch data ') . '</p>';
+            $output .= '<p>' . t('easily from their stores and display ') . '</p>';
+            $output .= '<p>' . t('those to monetize your website by ') . '</p>';
+            $output .= '<p>' . t('advertising their products.') . '</p>';
+            return $output;
 
-    case 'help.page.affiliates_connect_amazon':
-      $output = '';
-      $output .= '<h3>' . t('About') . '</h3>';
-      $output .= '<p>' . t('Amazon Plugin') . '</p>';
-      return $output;
+        case 'help.page.affiliates_connect_amazon':
+            $output = '';
+            $output .= '<h3>' . t('About') . '</h3>';
+            $output .= '<p>' . t('Amazon Plugin') . '</p>';
+            return $output;
 
-    default:
-  }
+        default:
+    }
 }
+
