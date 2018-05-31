@@ -14,8 +14,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 /**
  * Settings form for Affiliates Connect.
  */
-class AffiliatesConnectSettingsForm extends ConfigFormBase
-{
+class AffiliatesConnectSettingsForm extends ConfigFormBase {
 
   /**
    * Constructor.
@@ -30,8 +29,7 @@ class AffiliatesConnectSettingsForm extends ConfigFormBase
   /**
    * {@inheritdoc}
    */
-  public static function create(ContainerInterface $container)
-  {
+  public static function create(ContainerInterface $container) {
     return new static(
       $container->get('config.factory')
     );
@@ -40,8 +38,7 @@ class AffiliatesConnectSettingsForm extends ConfigFormBase
   /**
    * {@inheritdoc}
    */
-  protected function getEditableConfigNames()
-  {
+  protected function getEditableConfigNames() {
     return [
       'affiliates_connect.settings'
     ];
@@ -50,21 +47,19 @@ class AffiliatesConnectSettingsForm extends ConfigFormBase
   /**
    * {@inheritdoc}
    */
-  public function getFormId()
-  {
+  public function getFormId() {
     return 'affiliates_connect_settings';
   }
 
   /**
    * {@inheritdoc}
    */
-  public function buildForm(array $form, FormStateInterface $form_state)
-  {
+  public function buildForm(array $form, FormStateInterface $form_state) {
     $config = $this->config('affiliates_connect.settings');
 
     $form['affiliates_connect'] = [
       '#type' => 'details',
-      '#title' => $this->t('Affiliates Connect Settings'),
+      '#title' => $this->t('Affiliates Connect configuration settings'),
       '#open' => TRUE,
     ];
 
@@ -73,6 +68,161 @@ class AffiliatesConnectSettingsForm extends ConfigFormBase
       '#title' => $this->t('Data Storage'),
       '#description' => $this->t('Enable to store product\'s data in your site\'s database.'),
       '#default_value' => $config->get('data_storage'),
+    ];
+
+    $form['affiliates_connect']['data_storage_form'] = [
+      '#type' => 'details',
+      '#title' => $this->t('Storage token'),
+      '#open' => TRUE,
+      '#states' => [
+         "visible" => [
+           "input[name='data_storage']" => ["checked" => TRUE]],
+      ],
+    ];
+
+    $form['affiliates_connect']['data_storage_form']['affiliate_import'] = [
+      '#type' => 'select',
+      '#title' => $this->t('Import period for Affiliate API'),
+      '#options' => [
+         'A' => t('Everyday'),
+         'B' => t('Every 15 days'),
+         'C' => t('Every week'),
+         'D' => t('Every month'),
+      ],
+      '#attributes' => ['class' => ['select-bbq-selector']],
+      '#required' => true,
+      '#empty_option' => 'Select',
+      '#default_value' => '',
+      '#states' => [
+        "required" => [
+          "input[name='data_storage']" => ["checked" => TRUE]],
+      ],
+    ];
+
+    $form['affiliates_connect']['data_storage_form']['scraper_import'] = [
+      '#type' => 'select',
+      '#title' => $this->t('Import period for Scraper API'),
+      '#options' => [
+         'A' => t('Everyday'),
+         'B' => t('Every 15 days'),
+         'C' => t('Every week'),
+         'D' => t('Every month'),
+      ],
+      '#attributes' => ['class' => ['select-bbq-selector']],
+      '#required' => true,
+      '#empty_option' => 'Select',
+      '#states' => [
+         "required" => [
+           "input[name='data_storage']" => ["checked" => TRUE]],
+      ],
+    ];
+
+    $form['affiliates_connect']['data_storage_form']['content_scrape'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Scrape Content'),
+      '#description' => $this->t('Scrape content on a daily basis (Update)'),
+      '#default_value' => $config->get('content_scrape'),
+    ];
+
+    $form['affiliates_connect']['data_storage_form']['content_scrape_form'] = [
+      '#type' => 'details',
+      '#title' => $this->t('Content Scrape Token'),
+      '#open' => TRUE,
+      '#states' => [
+         "visible" => [
+           "input[name='content_scrape']" => ["checked" => TRUE]],
+      ],
+    ];
+
+    $form['affiliates_connect']['data_storage_form']['content_scrape_form']['scrape_timer'] = [
+      '#type' => 'select',
+      '#title' => $this->t('Import period for content scraping'),
+      '#options' => [
+         'A' => t('Every 30 mins'),
+         'B' => t('Every 1 hour'),
+         'C' => t('Every 2 hours'),
+         'D' => t('Every 5 hours'),
+         'E' => t('Every 10 hours'),
+         'F' => t('Every 15 hours'),
+         'G' => t('Every 20 hours'),
+      ],
+      '#attributes' => ['class' => ['select-bbq-selector']],
+      '#required' => true,
+      '#empty_option' => 'Select',
+      '#states' => [
+         "required" => [
+           "input[name='content_scrape']" => ["checked" => TRUE]],
+      ],
+    ];
+
+    $form['affiliates_connect']['data_storage_form']['content_scrape_form']['full_content'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Full Content'),
+      '#default_value' => $config->get('full_content'),
+      '#states' => [
+         "required" => [
+           "input[name='content_scrape_form']" => ["checked" => TRUE]],
+      ],
+    ];
+
+    $form['affiliates_connect']['data_storage_form']['content_scrape_form']['reviews'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Reviews'),
+      '#default_value' => $config->get('reviews'),
+      '#states' => [
+         "required" => [
+           "input[name='content_scrape_form']" => ["checked" => TRUE]],
+      ],
+    ];
+
+    $form['affiliates_connect']['data_storage_form']['content_scrape_form']['available'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Availability'),
+      '#default_value' => $config->get('available'),
+      '#states' => [
+         "required" => [
+           "input[name='content_scrape_form']" => ["checked" => TRUE]],
+      ],
+    ];
+
+    $form['affiliates_connect']['data_storage_form']['content_scrape_form']['size'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Size'),
+      '#default_value' => $config->get('size'),
+      '#states' => [
+         "required" => [
+           "input[name='content_scrape_form']" => ["checked" => TRUE]],
+      ],
+    ];
+
+    $form['affiliates_connect']['data_storage_form']['content_scrape_form']['color'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Color'),
+      '#default_value' => $config->get('Color'),
+      '#states' => [
+         "required" => [
+           "input[name='content_scrape_form']" => ["checked" => TRUE]],
+      ],
+    ];
+
+    $form['affiliates_connect']['data_storage_form']['content_scrape_form']['offers'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Offers'),
+      '#default_value' => $config->get('offers'),
+      '#states' => [
+         "required" => [
+           "input[name='content_scrape_form']" => ["checked" => TRUE]],
+      ],
+    ];
+
+    $form['affiliates_connect']['data_storage_form']['content_scrape_form']['others'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Others'),
+      '#default_value' => $config->get('others'),
+      '#states' => [
+         "required" => [
+           "input[name='content_scrape_form']" => ["checked" => TRUE]],
+      ],
     ];
 
     $form['affiliates_connect']['fallback_scraper'] = [
@@ -118,16 +268,7 @@ class AffiliatesConnectSettingsForm extends ConfigFormBase
   /**
    * {@inheritdoc}
    */
-  // public function validateForm(array $form, FormStateInterface $form_state)
-  // {
-  //   parent::validateForm($form, $form_state);
-  // }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function submitForm(array &$form, FormStateInterface $form_state)
-  {
+  public function submitForm(array &$form, FormStateInterface $form_state) {
     $values = $form_state->getValues();
     $this->config('affiliates_connect.settings')
       ->set('data_storage', $values['data_storage'])
