@@ -1,5 +1,17 @@
-fallback_scraper: True
-save_searched_products: False
-cloaking: True
-enable_hits_analysis: True
-append_affiliate_id: True
+data_storage: true
+affiliate_import:
+scraper_import:
+content_scrape: true
+scrape_timer:
+full_content: true
+reviews: true
+available: true
+size: true
+color: true
+offers: true
+others: true
+fallback_scraper: true
+save_searched_products: false
+cloaking: true
+enable_hits_analysis: true
+append_affiliate_id: true
