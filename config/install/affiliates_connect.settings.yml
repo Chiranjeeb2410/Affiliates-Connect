@@ -2,7 +2,7 @@ data_storage: true
 affiliate_import:
 scraper_import:
 content_scrape: true
-scrape_timer:
+scrape_timer: true
 full_content: true
 reviews: true
 available: true

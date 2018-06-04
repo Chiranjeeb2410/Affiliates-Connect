@@ -4,7 +4,7 @@ affiliates_connect.settings:
   mapping:
     data_storage:
       type: boolean
-      label: 'Allows storing product's data in your site's database'
+      label: 'Allows storing product data in your site database'
     affiliate_import:
       type: string
       label: 'Import period for Affiliate API'

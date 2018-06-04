@@ -18,11 +18,3 @@ affiliates_connect.native_api:
   parent: affiliates_connect.admin_config
   description: 'Configure native affiliate api settings.'
   weight: 0
-
-# affiliates_connect.scraper_api:
-#   title: Affiliates Scraper API settings
-#   description: Configure scraper affiliate api settings
-#   route_name: affiliates_connect.scraper_api
-#   parent: affiliates_connect.admin_config
-#   weight: 1
-

@@ -11,8 +11,12 @@ use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+
 /**
- * Settings form for Affiliates Connect.
+ * Creates the AffiliatesConnectSettingsForm class.
+ *
+ * Creates admin form for saving common system configuration
+ * settings to be inherited by the associated subordinate plugins.
  */
 class AffiliatesConnectSettingsForm extends ConfigFormBase {
 
@@ -84,14 +88,14 @@ class AffiliatesConnectSettingsForm extends ConfigFormBase {
       '#type' => 'select',
       '#title' => $this->t('Import period for Affiliate API'),
       '#options' => [
-         '1' => $this->t('Everyday'),
-         '2' => $this->t('Every 15 days'),
-         '3' => $this->t('Every week'),
-         '4' => $this->t('Every month'),
+         'every_day' => $this->t('Everyday'),
+         'every_15_days' => $this->t('Every 15 days'),
+         'every_week' => $this->t('Every week'),
+         'every_week' => $this->t('Every month'),
       ],
       '#attributes' => ['class' => ['select-bbq-selector']],
       '#empty_option' => 'Select',
-      '#default_value' => '',
+      '#default_value' => $config->get('affiliate_import'),
       '#states' => [
         "required" => [
           "input[name='data_storage']" => ["checked" => TRUE]],
@@ -102,13 +106,14 @@ class AffiliatesConnectSettingsForm extends ConfigFormBase {
       '#type' => 'select',
       '#title' => $this->t('Import period for Scraper API'),
       '#options' => [
-         '1' => $this->t('Everyday'),
-         '2' => $this->t('Every 15 days'),
-         '3' => $this->t('Every week'),
-         '4' => $this->t('Every month'),
+         'every_day' => $this->t('Everyday'),
+         'every_15_days' => $this->t('Every 15 days'),
+         'every_week' => $this->t('Every week'),
+         'every_week' => $this->t('Every month'),
       ],
       '#attributes' => ['class' => ['select-bbq-selector']],
       '#empty_option' => 'Select',
+      '#default_value' => $config->get('scraper_import'),
       '#states' => [
          "required" => [
            "input[name='data_storage']" => ["checked" => TRUE]],
@@ -136,16 +141,17 @@ class AffiliatesConnectSettingsForm extends ConfigFormBase {
       '#type' => 'select',
       '#title' => $this->t('Import period for content scraping'),
       '#options' => [
-         '1' => $this->t('Every 30 mins'),
-         '2' => $this->t('Every 1 hour'),
-         '3' => $this->t('Every 2 hours'),
-         '4' => $this->t('Every 5 hours'),
-         '5' => $this->t('Every 10 hours'),
-         '6' => $this->t('Every 15 hours'),
-         '7' => $this->t('Every 20 hours'),
+         'every_30_mins' => $this->t('Every 30 mins'),
+         'every_hour' => $this->t('Every 1 hour'),
+         'every_2_hours' => $this->t('Every 2 hours'),
+         'every_5_hours' => $this->t('Every 5 hours'),
+         'every_10_hours' => $this->t('Every 10 hours'),
+         'every_15_hours' => $this->t('Every 15 hours'),
+         'every_20_hours' => $this->t('Every 20 hours'),
       ],
       '#attributes' => ['class' => ['select-bbq-selector']],
       '#empty_option' => 'Select',
+      '#default_value' => $config->get('scrape_timer'),
       '#states' => [
          "required" => [
            "input[name='content_scrape']" => ["checked" => TRUE]],
@@ -272,6 +278,7 @@ class AffiliatesConnectSettingsForm extends ConfigFormBase {
       ->set('affiliate_import', $values['affiliate_import'])
       ->set('scraper_import', $values['scraper_import'])
       ->set('content_scrape', $values['content_scrape'])
+      ->set('scrape_timer', $values['scrape_timer'])
       ->set('full_content', $values['full_content'])
       ->set('reviews', $values['reviews'])
       ->set('available', $values['available'])
