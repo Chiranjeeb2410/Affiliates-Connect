@@ -1,5 +1,16 @@
-native_api: True
-native_affiliate_id:
-native_affiliate_token:
-scraper_api: True
-
+native_api: true
+native_access_key_id:
+native_affiliate_secret_key:
+scraper_api: true
+data_storage: true
+affiliate_import:
+scraper_import:
+content_scrape: true
+scrape_timer:
+full_content: true
+reviews: true
+available: true
+size: true
+color: true
+offers: true
+others: true

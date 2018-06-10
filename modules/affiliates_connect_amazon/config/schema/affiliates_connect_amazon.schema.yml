@@ -5,13 +5,48 @@ affiliates_connect_amazon.settings:
     native_api:
       type: boolean
       label: 'Allows usage Affiliate Marketing using tracking ID'
-    native_affiliate_id:
+    native_access_key_id:
       type: string
       label: 'Input associated ID of corresponding Affiliate API'
-    native_affiliate_token:
+    native_affiliate_secret_key:
       type: string
       label: 'Input associated token of corresponding Affiliate API'
     scraper_api:
       type: boolean
       label: 'Allows usage Scraper API to overcome limitation of Affiliate API'
-
+    data_storage:
+      type: boolean
+      label: 'Allows storing product data in your site database'
+    affiliate_import:
+      type: string
+      label: 'Import period for Affiliate API'
+    scraper_import:
+      type: string
+      label: 'Import period for Scraper API'
+    content_scrape:
+      type: boolean
+      label: 'Allows to scrape content on a daily basis'
+    scrape_timer:
+      type: string
+      label: 'Import period for content scraping'
+    full_content:
+      type: boolean
+      label: 'Allows scraping of content based on content'
+    reviews:
+      type: boolean
+      label: 'Allows scraping of content based on reviews'
+    available:
+      type: boolean
+      label: 'Allows scraping of content based on availability'
+    size:
+      type: boolean
+      label: 'Allows scraping of content based on size'
+    color:
+      type: boolean
+      label: 'Allows scraping of content based on color'
+    offers:
+      type: boolean
+      label: 'Allows scraping of content based on offers'
+    others:
+      type: boolean
+      label: 'Allows scraping of content based on other criteria'

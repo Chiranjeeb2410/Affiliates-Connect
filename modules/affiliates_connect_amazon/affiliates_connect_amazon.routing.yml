@@ -1,4 +1,3 @@
-
 affiliates_connect_amazon.settings:
   path: '/admin/config/affiliates-connect/amazon'
   defaults:
@@ -8,4 +7,3 @@ affiliates_connect_amazon.settings:
     _permission: 'access administration pages'
   options:
     _admin_route: TRUE
-

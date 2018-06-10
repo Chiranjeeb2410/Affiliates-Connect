@@ -1,15 +1,3 @@
-data_storage: true
-affiliate_import:
-scraper_import:
-content_scrape: true
-scrape_timer: true
-full_content: true
-reviews: true
-available: true
-size: true
-color: true
-offers: true
-others: true
 fallback_scraper: true
 save_searched_products: false
 cloaking: true

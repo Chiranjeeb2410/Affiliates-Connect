@@ -2,42 +2,6 @@ affiliates_connect.settings:
   type: config_object
   label: 'Affiliates Connect Settings'
   mapping:
-    data_storage:
-      type: boolean
-      label: 'Allows storing product data in your site database'
-    affiliate_import:
-      type: string
-      label: 'Import period for Affiliate API'
-    scraper_import:
-      type: string
-      label: 'Import period for Scraper API'
-    content_scrape:
-      type: boolean
-      label: 'Allows to scrape content on a daily basis'
-    scrape_timer:
-      type: string
-      label: 'Import period for content scraping'
-    full_content:
-      type: boolean
-      label: 'Allows scraping of content based on content'
-    reviews:
-      type: boolean
-      label: 'Allows scraping of content based on reviews'
-    available:
-      type: boolean
-      label: 'Allows scraping of content based on availability'
-    size:
-      type: boolean
-      label: 'Allows scraping of content based on size'
-    color:
-      type: boolean
-      label: 'Allows scraping of content based on color'
-    offers:
-      type: boolean
-      label: 'Allows scraping of content based on offers'
-    others:
-      type: boolean
-      label: 'Allows scraping of content based on other criteria'
     fallback_scraper:
       type: boolean
       label: 'Allows Scraper API to search when Native API fails'

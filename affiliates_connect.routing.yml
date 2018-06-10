@@ -15,13 +15,3 @@ affiliates_connect.overview:
     _permission: 'access administration pages'
   options:
     _admin_route: TRUE
-
-affiliates_connect.native_api:
-  path: 'admin/config/affiliates-connect/native-api'
-  defaults:
-    _title: 'Affiliates Native API settings'
-    _form: '\Drupal\affiliates_connect\Form\AffiliatesConnectSettingsForm'
-  requirements:
-    _permission: 'access administration pages'
-  options:
-    _admin_route: TRUE

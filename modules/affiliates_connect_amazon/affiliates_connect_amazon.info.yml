@@ -3,3 +3,4 @@ type: module
 description: 'Amazon Plugin'
 core: 8.x
 package: 'Third-party Integration'
+configure: affiliates_connect_amazon.settings

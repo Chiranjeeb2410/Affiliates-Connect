@@ -11,10 +11,3 @@ affiliates_connect.overview:
   parent: affiliates_connect.admin_config
   description: 'Configure various Affiliates Connect plugins.'
   weight: 0
-
-affiliates_connect.native_api:
-  title: 'Affiliates Native API settings'
-  route_name: affiliates_connect.native_api
-  parent: affiliates_connect.admin_config
-  description: 'Configure native affiliate api settings.'
-  weight: 0
